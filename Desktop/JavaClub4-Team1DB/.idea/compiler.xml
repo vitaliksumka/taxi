@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JavaClub4-Team1DB" />
         <module name="JavaClub4" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="JavaClub4-Team1DB" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.team1.spring_hibernate.entity;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -27,6 +28,40 @@ public class Book {
 
     @Column(name = "is_available")
     private boolean is_available;
+
+
+    // --------------------------------------------------------------
+
+    @OneToMany(mappedBy = "book")
+    private Set<BookAuthor> bookAuthors = new HashSet<BookAuthor>();
+
+    //@OneToMany(mappedBy = "book")
+    public Set<BookAuthor> getBookAuthors() {
+        return bookAuthors;
+    }
+
+    public void setBookAuthors(Set<BookAuthor> bookAuthors) {
+        this.bookAuthors = bookAuthors;
+    }
+
+    public void setBookAuthor(Set<BookAuthor> bookAuthor) {
+        this.bookAuthors = bookAuthors;
+    }
+
+    public void addBookAuthor(BookAuthor bookAuthor) {
+        this.bookAuthors.add(bookAuthor);
+    }
+
+    public void addGroup(BookAuthor bookAuthor) {
+        this.bookAuthors.add(bookAuthor);
+    }
+
+    // --------------------------------------------------------------
+
+
+
+
+
 
 
     public Book() {

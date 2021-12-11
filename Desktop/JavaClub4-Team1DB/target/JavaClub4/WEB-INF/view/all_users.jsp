@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AllUsers</title>
+    <title>All Users</title>
 </head>
 <body>
 

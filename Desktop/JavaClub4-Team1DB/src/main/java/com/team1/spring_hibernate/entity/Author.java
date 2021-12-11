@@ -3,6 +3,7 @@ package com.team1.spring_hibernate.entity;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "author")
@@ -12,8 +13,6 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany
-    Set<Book> authorsOfBooks;
 
     @Column(name = "first_name")
     private String name;
@@ -28,23 +27,45 @@ public class Author {
     private int age;
 
 
+    // --------------------------------------------------------------
+
+
+
+    @OneToMany(mappedBy = "author")
+    private Set<BookAuthor> bookAuthors = new HashSet<BookAuthor>();
+
+
+    @OneToMany(mappedBy = "author")  // тут було закоментовано, розкоментував!!!
+    public Set<BookAuthor> getBookAuthors() {
+        return bookAuthors;
+    }
+
+    public void setBookAuthors(Set<BookAuthor> bookAuthors) {
+        this.bookAuthors = bookAuthors;
+    }
+
+//    public void setBookAuthor(Set<BookAuthor> bookAuthor) {
+//        this.bookAuthors = bookAuthors;
+//    }
+
+    public void addBookAuthor(BookAuthor bookAuthor) {
+        this.bookAuthors.add(bookAuthor);
+    }
+
+    public void addGroup(BookAuthor bookAuthor) {
+        this.bookAuthors.add(bookAuthor);
+    }
+
+    // --------------------------------------------------------------
+
+
+
 //    @ManyToMany
 //    @JoinTable(
 //            name = "book_author",
 //            joinColumns = @JoinColumn(name = "book_id"),
-//            inverseJoinColumns = @JoinColumn(name = "author_id"),
-//            @Column(name = "is_coauthor")
-//            private boolean is_coauthor;
-//            )
-
-
-//
-//    @ManyToMany
-//    @JoinTable(
-//            name = "book_author",
-//            joinColumns = @JoinColumn(name = "student_id"),
-//            inverseJoinColumns = @JoinColumn(name = "course_id"))
-//     Set<Book> likedCourses;
+//            inverseJoinColumns = @JoinColumn(name = "author_id"))
+//    Set<Book> writtenBooks;
 
 
     public Author() {
@@ -97,4 +118,17 @@ public class Author {
     public void setAge(int age) {
         this.age = age;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
