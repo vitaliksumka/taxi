@@ -1,9 +1,6 @@
 package com.team1.spring_hibernate.entity;
 
 
-import com.team1.spring_hibernate.entity.*;
-
-
 import javax.persistence.*;
 
 

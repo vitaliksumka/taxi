@@ -57,7 +57,9 @@ public class Book {
     public Set<Author> getBooksAuthors() {
         return booksAuthors;
     }
+    public Book() {
 
+    }
 
     public void setBooksAuthors(Set<Author> booksAuthors) {
         this.booksAuthors = booksAuthors;
@@ -77,7 +79,6 @@ public class Book {
 
     public void setBookLoan(Set<BookLoan> bookLoan) {
         this.bookLoans = bookLoan;
-
     }
 
     public void addBookLoans(BookLoan bookLoans) {
@@ -98,8 +99,6 @@ public class Book {
 
     // --------------------------------------------------------------
 
-    public Book() {
-    }
 
     public Book(int id, int copies_count, String title, double rating, String edition, boolean is_available) {
         this.id = id;
