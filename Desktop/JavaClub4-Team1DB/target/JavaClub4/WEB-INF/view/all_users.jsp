@@ -20,15 +20,12 @@
 <table>
 
     <tr>
-        <th><pre>  Id </pre></th>
+        <th><pre> Id  </pre></th>
+        <th><pre> Name  </pre></th>
+        <th><pre> Surname  </pre></th>
+        <th><pre> Role id  </pre></th>
+        <th><pre> Age  </pre></th>
 
-        <th><pre>Name  </pre></th>
-        <th><pre>Surname  </pre></th>
-        <th><pre>  Books readed  </pre></th>
-        <th><pre>  Reading now  </pre></th>
-        <th><pre>  Role id  </pre></th>
-        <th><pre>  Started reading recently  </pre></th>
-        <th><pre>  Ended reading  </pre></th>
     </tr>
 
     <c:forEach var="users" items="${modelAllUsers}">
@@ -37,11 +34,8 @@
         <td><pre>  ${users.id}  </pre></td>
         <td><pre>  ${users.name}  </pre></td>
         <td><pre>  ${users.surname}  </pre></td>
-        <td><pre>  ${users.books_readed}  </pre></td>
-        <td><pre>  ${users.reading_now}  </pre></td>
-        <td><pre>  ${users.role_id}  </pre></td>
-        <td><pre>  ${users.started_reading_recently}  </pre></td>
-        <td><pre>  ${users.ended_reading}  </pre></td>
+        <td><pre>  ${users.roleId}  </pre></td>
+        <td><pre>  ${users.age}  </pre></td>
     </tr>
 
     </c:forEach>

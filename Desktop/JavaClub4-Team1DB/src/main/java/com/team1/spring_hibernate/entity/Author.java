@@ -29,8 +29,6 @@ public class Author {
 
     // --------------------------------------------------------------
 
-
-
     @OneToMany(mappedBy = "author")
     private Set<BookAuthor> bookAuthors = new HashSet<BookAuthor>();
 

@@ -1,4 +1,5 @@
 package com.team1.spring_hibernate.entity;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,8 +15,8 @@ public class Book {
     @ManyToMany
     Set<Author> booksAuthors;
 
-    @Column(name = "copies_count")
-    private int copies_count;
+    @ManyToMany
+    Set<User> booksLoans;
 
     @Column(name = "title")
     private String title;
@@ -26,11 +27,8 @@ public class Book {
     @Column(name = "edition")
     private String edition;
 
-    @Column(name = "is_available")
-    private boolean is_available;
 
-
-    // --------------------------------------------------------------
+    // ------------------------------Book author--------------------------------
 
     @OneToMany(mappedBy = "book")
     private Set<BookAuthor> bookAuthors = new HashSet<BookAuthor>();
@@ -56,38 +54,60 @@ public class Book {
         this.bookAuthors.add(bookAuthor);
     }
 
+    public Set<Author> getBooksAuthors() {
+        return booksAuthors;
+    }
+
+
+    public void setBooksAuthors(Set<Author> booksAuthors) {
+        this.booksAuthors = booksAuthors;
+    }
+
+    // -------------------------Book loan-------------------------------------
+    @OneToMany(mappedBy = "book")
+    private Set<BookLoan> bookLoans = new HashSet<BookLoan>();
+
+    public Set<BookLoan> getBookLoans() {
+        return bookLoans;
+    }
+
+    public void setBookLoans(Set<BookLoan> bookLoans) {
+        this.bookLoans = bookLoans;
+    }
+
+    public void setBookLoan(Set<BookLoan> bookLoan) {
+        this.bookLoans = bookLoan;
+
+    }
+
+    public void addBookLoans(BookLoan bookLoans) {
+        this.bookLoans.add(bookLoans);
+    }
+
+    public void addLoans(BookLoan bookLoans) {
+        this.bookLoans.add(bookLoans);
+    }
+
+    public Set<User> getBooksLoans() {
+        return booksLoans;
+    }
+
+    public void setBooksLoans(Set<User> booksLoans) {
+        this.booksLoans = booksLoans;
+    }
+
     // --------------------------------------------------------------
-
-
 
     public Book() {
     }
 
     public Book(int id, int copies_count, String title, double rating, String edition, boolean is_available) {
         this.id = id;
-        this.copies_count = copies_count;
         this.title = title;
         this.rating = rating;
         this.edition = edition;
-        this.is_available = is_available;
     }
 
-
-    public Set<Author> getBooksAuthors() {
-        return booksAuthors;
-    }
-
-    public void setBooksAuthors(Set<Author> booksAuthors) {
-        this.booksAuthors = booksAuthors;
-    }
-
-    public boolean isIs_available() {
-        return is_available;
-    }
-
-    public void setIs_available(boolean is_available) {
-        this.is_available = is_available;
-    }
 
     public int getId() {
         return id;
@@ -95,14 +115,6 @@ public class Book {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getCopies_count() {
-        return copies_count;
-    }
-
-    public void setCopies_count(int copies_count) {
-        this.copies_count = copies_count;
     }
 
     public String getTitle() {
