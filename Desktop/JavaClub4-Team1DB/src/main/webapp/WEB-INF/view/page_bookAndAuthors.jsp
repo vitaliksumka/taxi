@@ -30,8 +30,6 @@
     <th><pre> Book Title  </pre></th>
     <th><pre> Book Rating  </pre></th>
     <th><pre> Book Edition  </pre></th>
-    <th><pre> Book Copies Count  </pre></th>
-    <th><pre> Is Available  </pre></th>
   </tr>
 
   <c:forEach var="booksAuthors" items="${bookAndAuthors}">
@@ -48,8 +46,7 @@
       <td><pre>  ${booksAuthors.book.title}  </pre></td>
       <td><pre>  ${booksAuthors.book.rating}  </pre></td>
       <td><pre>  ${booksAuthors.book.edition}  </pre></td>
-      <td><pre>  ${booksAuthors.book.copies_count}  </pre></td>
-      <td><pre>  ${booksAuthors.book.is_available}  </pre></td>
+
 
     </tr>
 

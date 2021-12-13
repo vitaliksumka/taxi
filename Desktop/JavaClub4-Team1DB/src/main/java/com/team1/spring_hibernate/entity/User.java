@@ -3,6 +3,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -18,33 +20,51 @@ public class User {
     @Column(name = "last_name")
     private String surname;
 
-    @Column(name = "books_readed")
-    private int books_readed;
-
-    @Column(name = "books_reading_now")
-    private int reading_now;
-
-    @Column(name = "started_reading_recently")
-    private Date started_reading_recently;
-
-    @Column(name = "ended_reading")
-    private Date ended_reading;
+    @Column(name = "age")
+    private int age;
 
     @Column(name = "role_id")
-    private int role_id;
+    private int roleId;
+
+    // --------------------------------------------------------------
+
+    @OneToMany(mappedBy = "user")
+    private Set<BookLoan> bookLoans = new HashSet<BookLoan>();
+
+
+    @OneToMany(mappedBy = "user")  // тут було закоментовано, розкоментував!!!
+    public Set<BookLoan> getBookLoans() {
+        return bookLoans;
+    }
+
+    public void setBookLoans(Set<BookLoan> bookLoans) {
+        this.bookLoans = bookLoans;
+    }
+
+//    public void setBookAuthor(Set<BookAuthor> bookAuthor) {
+//        this.bookAuthors = bookAuthors;
+//    }
+
+    public void addBookLoan(BookLoan bookLoan) {
+        this.bookLoans.add(bookLoan);
+    }
+
+    public void addLoan(BookLoan bookLoan) {
+        this.bookLoans.add(bookLoan);
+    }
+
+    // --------------------------------------------------------------
+
 
     public User() {
     }
 
-    public User(int id, String name, String surname, int books_readed, int reading_now, Date started_reading_recently, Date ended_reading, int role_id) {
+    public User(int id, String name, String surname, int age, int role_id) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.books_readed = books_readed;
-        this.reading_now = reading_now;
-        this.started_reading_recently = started_reading_recently;
-        this.ended_reading = ended_reading;
-        this.role_id = role_id;
+        this.age = age;
+        this.roleId = role_id;
     }
 
     public int getId() {
@@ -71,43 +91,19 @@ public class User {
         this.surname = surname;
     }
 
-    public int getBooks_readed() {
-        return books_readed;
+    public int getAge() {
+        return age;
     }
 
-    public void setBooks_readed(int books_readed) {
-        this.books_readed = books_readed;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public int getReading_now() {
-        return reading_now;
+    public int getRoleId() {
+        return roleId;
     }
 
-    public void setReading_now(int reading_now) {
-        this.reading_now = reading_now;
-    }
-
-    public Date getStarted_reading_recently() {
-        return started_reading_recently;
-    }
-
-    public void setStarted_reading_recently(Date started_reading_recently) {
-        this.started_reading_recently = started_reading_recently;
-    }
-
-    public Date getEnded_reading() {
-        return ended_reading;
-    }
-
-    public void setEnded_reading(Date ended_reading) {
-        this.ended_reading = ended_reading;
-    }
-
-    public int getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(int role_id) {
-        this.role_id = role_id;
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 }

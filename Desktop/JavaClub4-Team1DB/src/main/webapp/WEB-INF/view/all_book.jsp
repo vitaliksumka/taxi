@@ -20,13 +20,10 @@
 <table>
 
     <tr>
-        <th><pre> Id </pre></th>
-
-        <th><pre>Title  </pre></th>
-        <th><pre>  Copies count  </pre></th>
+        <th><pre>  Id  </pre></th>
+        <th><pre>  Title  </pre></th>
         <th><pre>  Edition  </pre></th>
         <th><pre>  Rating  </pre></th>
-        <th><pre>  Is available  </pre></th>
     </tr>
 
     <c:forEach var="books" items="${modelAllBooks}">
@@ -34,10 +31,8 @@
         <tr>
             <td><pre>  ${books.id}  </pre></td>
             <td><pre>  ${books.title}  </pre></td>
-            <td><pre>  ${books.copies_count}  </pre></td>
             <td><pre>  ${books.edition}  </pre></td>
             <td><pre>  ${books.rating}  </pre></td>
-            <td><pre>  ${books.is_available}  </pre></td>
         </tr>
 
     </c:forEach>

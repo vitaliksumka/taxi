@@ -1,7 +1,7 @@
 package com.team1.spring_hibernate.entity;
 
 import com.team1.spring_hibernate.entity.*;
-import sun.java2d.pipe.AAShapePipe;
+
 
 import javax.persistence.*;
 import java.util.Arrays;
@@ -14,9 +14,6 @@ public class BookAuthor {
     private int id;
 
 
-    private int author_id;
-    private int book_id;
-
     private Author author;
     private Book book;
     // additional fields
@@ -28,7 +25,7 @@ public class BookAuthor {
     }
 
 
-    @Id  // тут добавляли ID в БД
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
