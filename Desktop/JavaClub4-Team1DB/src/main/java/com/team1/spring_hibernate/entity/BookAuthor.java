@@ -1,10 +1,7 @@
 package com.team1.spring_hibernate.entity;
 
-import com.team1.spring_hibernate.entity.*;
-import sun.java2d.pipe.AAShapePipe;
-
 import javax.persistence.*;
-import java.util.Arrays;
+
 
 
 @Entity
@@ -12,7 +9,6 @@ import java.util.Arrays;
 public class BookAuthor {
 
     private int id;
-
 
     private int author_id;
     private int book_id;
