@@ -1,13 +1,7 @@
 package com.team1.spring_hibernate.controller;
 
-import com.team1.spring_hibernate.entity.Book;
-import com.team1.spring_hibernate.entity.BookAuthor;
-import com.team1.spring_hibernate.entity.BookLoan;
-import com.team1.spring_hibernate.entity.User;
-import com.team1.spring_hibernate.service.BookAuthorService;
-import com.team1.spring_hibernate.service.BookLoanService;
-import com.team1.spring_hibernate.service.BookService;
-import com.team1.spring_hibernate.service.UserService;
+import com.team1.spring_hibernate.entity.*;
+import com.team1.spring_hibernate.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +21,8 @@ public class MyController {
     private BookAuthorService bookAuthorService;
     @Autowired
     private BookLoanService bookLoanService;
+//    @Autowired
+//    private BookCopiesService bookCopiesService;
 
     @RequestMapping("/users")
     public String showAllUsers(Model model){
@@ -55,6 +51,14 @@ public class MyController {
         model.addAttribute("bookAndUsers", allBookAndUsers);
         return "page_bookAndUsers";
     }
+
+
+//    @RequestMapping("/booksAndCopies")
+//    public String showBooksAndCopies(Model model){
+//        List<BookCopies> allBookAndCopies = bookCopiesService.getAllBookCopy();
+//        model.addAttribute("bookAndCopies", allBookAndCopies);
+//        return "page_bookAndCopies";
+//    }
 
 
 

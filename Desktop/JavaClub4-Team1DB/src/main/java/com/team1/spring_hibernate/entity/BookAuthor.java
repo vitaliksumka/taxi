@@ -51,6 +51,7 @@ public class BookAuthor {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
+
     public Author getAuthor() {
         return author;
     }

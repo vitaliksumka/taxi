@@ -51,6 +51,7 @@ public class BookLoan {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+
     public User getUser() {
         return user;
     }
@@ -58,6 +59,7 @@ public class BookLoan {
     public void setUser(User user) {
         this.user = user;
     }
+
 
     public Date getTaken_date() {
         return taken_date;
